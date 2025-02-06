@@ -83,45 +83,130 @@
             <div class="row">
                 <div class="col-md-6">
                     <label class="list-group-item">
-                        <input type="checkbox" id="emf5" value="EMF 5" onchange="filterGhosts()"> EMF 5
+                        <input type="checkbox" id="fingerprints" value="Следы эктоплазмы" onchange="filterGhosts()"> Следы эктоплазмы
                     </label>
                     <label class="list-group-item">
-                        <input type="checkbox" id="fingerprints" value="Отпечатки" onchange="filterGhosts()"> Отпечатки
+                        <input type="checkbox" id="spiritbox" value="Радиоприемник" onchange="filterGhosts()"> Радиоприемник
                     </label>
                     <label class="list-group-item">
-                        <input type="checkbox" id="freezing" value="Мороз" onchange="filterGhosts()"> Мороз
+                        <input type="checkbox" id="record" value="Голос в диктофоне" onchange="filterGhosts()"> Голос в диктофоне
+                    </label>
+					<label class="list-group-item">
+                        <input type="checkbox" id="orbs" value="Огонек на камере" onchange="filterGhosts()"> Огонек на камере
+                    </label>
+                    <label class="list-group-item">
+                        <input type="checkbox" id="ice" value="Отрицательная температура" onchange="filterGhosts()"> Отрицательная температура
+                    </label>
+                    <label class="list-group-item">
+                        <input type="checkbox" id="pek3" value="РЕК 3" onchange="filterGhosts()"> РЕК 3
                     </label>
                 </div>
                 <div class="col-md-6">
                     <label class="list-group-item">
-                        <input type="checkbox" id="spiritbox" value="Радио" onchange="filterGhosts()"> Радио
+                        <input type="checkbox" id="smoke" value="Дымка" onchange="filterGhosts()"> Дымка
                     </label>
-                    <label class="list-group-item">
-                        <input type="checkbox" id="ghostwriting" value="Записи в книге" onchange="filterGhosts()"> Записи в книге
+					<label class="list-group-item">
+                        <input type="checkbox" id="note" value="Записи в блокноте" onchange="filterGhosts()"> Записи в блокноте
                     </label>
-                    <label class="list-group-item">
-                        <input type="checkbox" id="dots" value="D.O.T.S" onchange="filterGhosts()"> D.O.T.S
+					<label class="list-group-item">
+                        <input type="checkbox" id="emp5" value="Уровень ЭМП 5" onchange="filterGhosts()"> Уровень ЭМП 5
                     </label>
-                    <label class="list-group-item">
-                        <input type="checkbox" id="orbs" value="Призрачные огоньки" onchange="filterGhosts()"> Призрачные огоньки
+					<label class="list-group-item">
+                        <input type="checkbox" id="dots" value="Лазерная Проекция" onchange="filterGhosts()"> Лазерная Проекция
                     </label>
+					<label class="list-group-item">
+                        <input type="checkbox" id="sensor" value="Инфракрасный Датчик Движения" onchange="filterGhosts()"> Инфракрасный Датчик Движения
+                    </label>
+					
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <h2>Описание призраков:</h2>
             <div id="ghost-list" class="row mt-3">
-                <div class="ghost card p-3 mb-2 col-md-3" id="ghost-Призрак" onmouseover="showTooltip(event, 'Призрак - это сильный и опасный дух, который оставляет заморозки.')" onmouseout="hideTooltip()">
-                    <h3>Призрак</h3>
-                    <p>Призрак - это сильный и опасный дух.</p>
+                <div class="ghost card p-3 mb-2 col-md-3" id="ghost-Онрё" onmouseover="showTooltip(event, 'Онрё - это сильный и опасный дух, который оставляет заморозки.')" onmouseout="hideTooltip()">
+                    <h3>Онрё</h3>
+                    <p>Онрё - это сильный и опасный дух.</p>
                 </div>
-                <div class="ghost card p-3 mb-2 col-md-3" id="ghost-Демон" onmouseover="showTooltip(event, 'Демоны известны своей агрессивностью и атакуют чаще, чем другие призраки.')" onmouseout="hideTooltip()">
-                    <h3>Демон</h3>
-                    <p>Демоны атакуют чаще.</p>
+                <div class="ghost card p-3 mb-2 col-md-3" id="ghost-Мононоке" onmouseover="showTooltip(event, 'Демоны известны своей агрессивностью и атакуют чаще, чем другие призраки.')" onmouseout="hideTooltip()">
+                    <h3>Мононоке</h3>
+                    <p>Мононоке атакуют чаще.</p>
                 </div>
-                <div class="ghost card p-3 mb-2 col-md-3" id="ghost-Джинн" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                <div class="ghost card p-3 mb-2 col-md-3" id="ghost-Кинег" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Кинег</h3>
+                    <p>Кинег быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Джинн" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
                     <h3>Джинн</h3>
                     <p>Джинн быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Допплер" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Допплер</h3>
+                    <p>Допплер быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Мюлинг" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Мюлинг</h3>
+                    <p>Мюлинг быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Ревенант" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Ревенант</h3>
+                    <p>Ревенант быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Ширё" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Ширё</h3>
+                    <p>Ширё быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Шинигами" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Шинигами</h3>
+                    <p>Шинигами быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Полтергейст" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Полтергейст</h3>
+                    <p>Полтергейст быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Диббук" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Диббук</h3>
+                    <p>Диббук быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Обакэ" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Обакэ</h3>
+                    <p>Обакэ быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Пиру" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Пиру</h3>
+                    <p>Пиру быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Амонодзяку" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Амонодзяку</h3>
+                    <p>Амонодзяку быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Кидзё" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Кидзё</h3>
+                    <p>Кидзё быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Они" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Они</h3>
+                    <p>Они быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Могвай" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Могвай</h3>
+                    <p>Могвай быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Мара" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Мара</h3>
+                    <p>Мара быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Пишачи" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Пишачи</h3>
+                    <p>Пишачи быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Рэйки" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Рэйки</h3>
+                    <p>Рэйки быстрее движется.</p>
+                </div>
+				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Ронове" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
+                    <h3>Ронове</h3>
+                    <p>Ронове быстрее движется.</p>
                 </div>
             </div>
         </div>
@@ -129,9 +214,27 @@
     <div id="tooltip" class="tooltip-description"></div>
     <script>
         const ghosts = {
-            "Призрак": ["EMF 5", "Отпечатки", "Мороз"],
-            "Демон": ["Мороз", "Записи в книге", "Отпечатки"],
-            "Джинн": ["EMF 5", "Отпечатки", "Радио"]
+            "Онрё": ["Уровень ЭМП 5", "Записи в блокноте", "Лазерная Проекция"],
+            "Мононоке": ["Голос в диктофоне", "Уровень ЭМП 5", "Радиоприемник"],
+            "Кинег": ["Радиоприемник", "Огонек на камере", "Дымка"],
+            "Джинн": ["Записи в блокноте", "Уровень ЭМП 5", "Отрицательная температура"],
+            "Допплер": ["Дымка", "Инфракрасный Датчик Движения", "РЕК 3"],
+            "Мюлинг": ["Голос в диктофоне", "Уровень ЭМП 5", "Отрицательная температура"],
+            "Ревенант": ["Голос в диктофоне", "Следы эктоплазмы", "Огонек на камере"],
+            "Ширё": ["Лазерная Проекция", "Голос в диктофоне", "Следы эктоплазмы"],
+            "Шинигами": ["РЕК 3", "Радиоприемник", "Огонек на камере"],
+            "Полтергейст": ["Записи в блокноте", "Отрицательная температура", "Дымка"],
+            "Диббук": ["Голос в диктофоне", "Инфракрасный Датчик Движения", "Дымка"],
+            "Обакэ": ["Записи в блокноте", "Инфракрасный Датчик Движения", "Следы эктоплазмы"],
+            "Пиру": ["Отрицательная температура", "Следы эктоплазмы", "Огонек на камере"],
+            "Амонодзяку": ["Лазерная Проекция", "Отрицательная температура", "Дымка"],
+            "Кидзё": ["Радиоприемник", "Уровень ЭМП 5", "Дымка"],
+            "Они": ["Радиоприемник", "Инфракрасный Датчик Движения", "РЕК 3"],
+            "Могвай": ["Голос в диктофоне", "Лазерная Проекция", "Отрицательная температура"],
+            "Мара": ["Голос в диктофоне", "Инфракрасный Датчик Движения", "Следы эктоплазмы"],
+            "Пишачи": ["РЕК 3", "Отрицательная температура", "Огонек на камере"],
+            "Рэйки": ["Записи в блокноте", "Лазерная Проекция", "Следы эктоплазмы"],
+            "Ронове": ["Радиоприемник", "Голос в диктофоне", "Следы эктоплазмы"]
         };
 
         function filterGhosts() {
