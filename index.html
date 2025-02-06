@@ -14,17 +14,16 @@
 </head>
 <body>
     <div class="left-panel">
-        <h2>Выберите три улики:</h2>
+        <h2>Выберите улики:</h2>
         <div>
-            <input type="checkbox" id="emf5" value="EMF 5"> <label for="emf5">EMF 5</label><br>
-            <input type="checkbox" id="fingerprints" value="Отпечатки"> <label for="fingerprints">Отпечатки</label><br>
-            <input type="checkbox" id="freezing" value="Мороз"> <label for="freezing">Мороз</label><br>
-            <input type="checkbox" id="spiritbox" value="Радио"> <label for="spiritbox">Радио</label><br>
-            <input type="checkbox" id="ghostwriting" value="Записи в книге"> <label for="ghostwriting">Записи в книге</label><br>
-            <input type="checkbox" id="dots" value="D.O.T.S"> <label for="dots">D.O.T.S</label><br>
-            <input type="checkbox" id="orbs" value="Призрачные огоньки"> <label for="orbs">Призрачные огоньки</label><br>
+            <input type="checkbox" id="emf5" value="EMF 5" onchange="filterGhosts()"> <label for="emf5">EMF 5</label><br>
+            <input type="checkbox" id="fingerprints" value="Отпечатки" onchange="filterGhosts()"> <label for="fingerprints">Отпечатки</label><br>
+            <input type="checkbox" id="freezing" value="Мороз" onchange="filterGhosts()"> <label for="freezing">Мороз</label><br>
+            <input type="checkbox" id="spiritbox" value="Радио" onchange="filterGhosts()"> <label for="spiritbox">Радио</label><br>
+            <input type="checkbox" id="ghostwriting" value="Записи в книге" onchange="filterGhosts()"> <label for="ghostwriting">Записи в книге</label><br>
+            <input type="checkbox" id="dots" value="D.O.T.S" onchange="filterGhosts()"> <label for="dots">D.O.T.S</label><br>
+            <input type="checkbox" id="orbs" value="Призрачные огоньки" onchange="filterGhosts()"> <label for="orbs">Призрачные огоньки</label><br>
         </div>
-        <button onclick="filterGhosts()">Фильтровать призраков</button>
     </div>
     <div class="right-panel">
         <h2>Описание призраков:</h2>
@@ -56,16 +55,14 @@
             
             for (let ghost in ghosts) {
                 const ghostElement = document.getElementById(`ghost-${ghost}`);
-                if (arraysEqual(selectedEvidence, ghosts[ghost])) {
+                const matchingEvidences = ghosts[ghost].filter(evidence => selectedEvidence.includes(evidence)).length;
+                
+                if (matchingEvidences === selectedEvidence.length) {
                     ghostElement.style.display = "block";
                 } else {
                     ghostElement.style.display = "none";
                 }
             }
-        }
-
-        function arraysEqual(a, b) {
-            return a.length === b.length && a.every(v => b.includes(v));
         }
     </script>
 </body>
