@@ -2,14 +2,19 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Книга с вкладками</title>
+  <title>GHOST EXILE | Book</title>
   
   
   <style>
+	@font-face {
+		font-family: 'Font';
+		src: url('font.ttf');
+	}
+	
     body {
       margin: 0;
       background: url('background.webp') no-repeat center center fixed;
-      font-family: sans-serif;
+      font-family: 'MyFont';
       display: flex;
       justify-content: center;
       align-items: center;
@@ -85,7 +90,7 @@
 	.text-checkbox {
 		position: relative;
 		display: block;
-		font-family: 'ofont.ru_Azov.ttf', sans-serif;
+		font-family: 'font', sans-serif;
 		font-size: 75%;
 		margin: 10px 0;
 		cursor: pointer;
@@ -94,10 +99,10 @@
 	.text-ghost {
 		position: relative;
 		display: block;
-		font-family: 'ofont.ru_Azov.ttf', sans-serif;
+		font-family: 'font', sans-serif;
 		font-size: 75%;
 		margin: 10px 0;
-		padding:19px;
+		padding:15px;
 	}
 	.text-ghost .overlay-ghost {
 		position: absolute;
@@ -140,7 +145,7 @@
     .tooltip-description {
         position: relative;
 		display: block;
-		font-family: 'ofont.ru_Azov.ttf', sans-serif;
+		font-family: 'MyFont';
 		font-size: 75%;
 		margin: 10px 0;
 		cursor: pointer;
