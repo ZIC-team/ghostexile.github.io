@@ -20,6 +20,21 @@
             max-width: 300px;
             z-index: 1000;
         }
+		.ghost {
+		opacity: 1;
+		transform: scaleY(1);
+		transition: opacity 0.4s ease, transform 0.4s ease;
+		height: auto;
+		}
+
+		.ghost.hiding {
+		opacity: 0;
+		transform: scaleY(0);
+		}
+
+		.ghost.hidden {
+		display: none;
+		}
     </style>
 </head>
 <body class="container py-4">
@@ -237,20 +252,41 @@
             "Ронове": ["Радиоприемник", "Голос в диктофоне", "Следы эктоплазмы"]
         };
 
-        function filterGhosts() {
-            const selectedEvidence = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
-            
-            for (let ghost in ghosts) {
-                const ghostElement = document.getElementById(`ghost-${ghost}`);
-                const matchingEvidences = ghosts[ghost].filter(evidence => selectedEvidence.includes(evidence)).length;
-                
-                if (matchingEvidences === selectedEvidence.length) {
-                    ghostElement.classList.remove("strikethrough");
-                } else {
-                    ghostElement.classList.add("strikethrough");
-                }
-            }
+function filterGhosts() {
+    const evidenceCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+    const selectedEvidence = Array.from(evidenceCheckboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+    const ghostElements = document.querySelectorAll('.ghost');
+
+    for (const ghostEl of ghostElements) {
+        const ghostName = ghostEl.id.replace('ghost-', '');
+        const requiredEvidence = ghosts[ghostName];
+
+        if (!requiredEvidence) continue;
+
+        const matches = selectedEvidence.every(ev => requiredEvidence.includes(ev));
+
+        if (matches) {
+            // Показать
+            ghostEl.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                ghostEl.classList.remove('hiding');
+                ghostEl.classList.remove('strikethrough');
+            });
+        } else {
+            // Сначала анимация исчезновения
+            ghostEl.classList.add('hiding');
+            ghostEl.classList.add('strikethrough');
+
+            // После завершения анимации скрываем
+            setTimeout(() => {
+                ghostEl.classList.add('hidden');
+            }, 400); // Время = transition в CSS
         }
+    }
+}
 
         function showTooltip(event, text) {
             const tooltip = document.getElementById("tooltip");
