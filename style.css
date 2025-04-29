@@ -1,0 +1,31 @@
+.ghost.strikethrough {
+	text-decoration: line-through;
+	opacity: 0.5;
+}
+
+.tooltip-description {
+	display: none;
+	position: absolute;
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	max-width: 300px;
+	z-index: 1000;
+}
+		
+.ghost {
+	opacity: 1;
+	transform: scaleY(1);
+	transition: opacity 0.4s ease, transform 0.4s ease;
+	height: auto;
+}
+
+.ghost.hiding {
+	opacity: 0;
+	transform: scaleY(0);
+}
+
+.ghost.hidden {
+	display: none;
+}
