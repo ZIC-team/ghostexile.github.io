@@ -1,309 +1,448 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Определение призрака</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-	<style>
-		.ghost.strikethrough {
-	text-decoration: line-through;
-	opacity: 0.5;
-}
-
-.tooltip-description {
-	display: none;
-	position: absolute;
-	background: rgba(0, 0, 0, 0.8);
-	color: white;
-	padding: 10px;
-	border-radius: 5px;
-	max-width: 300px;
-	z-index: 1000;
-}
-		
-.ghost {
-	opacity: 1;
-	transform: scaleY(1);
-	transition: opacity 0.4s ease, transform 0.4s ease;
-	height: auto;
-}
-
-.ghost.hiding {
-	opacity: 0;
-	transform: scaleY(0);
-}
-
-.ghost.hidden {
-	display: none;
-}
-		
-</style>
-	
-</head>
-<body class="container py-4">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Ghost Exile</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-					<a class="nav-link" href="https://zic-team.github.io/ghostexile.github.io/" id="mechanicsDropdown" role="button" aria-expanded="false">Докозательства</a>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="mechanicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Механики</a>
-                        <ul class="dropdown-menu" aria-labelledby="mechanicsDropdown">
-                            <li><a class="dropdown-item" href="#">Охота</a></li>
-                            <li><a class="dropdown-item" href="#">Эвиденция</a></li>
-                            <li><a class="dropdown-item" href="#">Освещение</a></li>
-                            <li><a class="dropdown-item" href="#">Санити</a></li>
-                        </ul>
-						
-                    </li>
-					<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="mechanicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Предметы</a>
-                        <ul class="dropdown-menu" aria-labelledby="mechanicsDropdown">
-                            <li><a class="dropdown-item" href="#">1</a></li>
-                            <li><a class="dropdown-item" href="#">2</a></li>
-                            <li><a class="dropdown-item" href="#">3</a></li>
-                            <li><a class="dropdown-item" href="#">4</a></li>
-                        </ul>
-						
-                    </li>
-					<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="mechanicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Призраки</a>
-                        <ul class="dropdown-menu" aria-labelledby="mechanicsDropdown">
-                            <li><a class="dropdown-item" href="#">1</a></li>
-                            <li><a class="dropdown-item" href="#">2</a></li>
-                            <li><a class="dropdown-item" href="#">3</a></li>
-                            <li><a class="dropdown-item" href="#">4</a></li>
-                        </ul>
-						
-                    </li>
-					<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="mechanicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Охоты</a>
-                        <ul class="dropdown-menu" aria-labelledby="mechanicsDropdown">
-                            <li><a class="dropdown-item" href="#">1</a></li>
-                            <li><a class="dropdown-item" href="#">2</a></li>
-                            <li><a class="dropdown-item" href="#">3</a></li>
-                            <li><a class="dropdown-item" href="#">4</a></li>
-                        </ul>
-						
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="row">
-        <div class="col-md-6">
-            <h2>Выберите улики:</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <label class="list-group-item">
-                        <input type="checkbox" id="fingerprints" value="Следы эктоплазмы" onchange="filterGhosts()"> Следы эктоплазмы
-                    </label>
-                    <label class="list-group-item">
-                        <input type="checkbox" id="spiritbox" value="Радиоприемник" onchange="filterGhosts()"> Радиоприемник
-                    </label>
-                    <label class="list-group-item">
-                        <input type="checkbox" id="record" value="Голос в диктофоне" onchange="filterGhosts()"> Голос в диктофоне
-                    </label>
-					<label class="list-group-item">
-                        <input type="checkbox" id="orbs" value="Огонек на камере" onchange="filterGhosts()"> Огонек на камере
-                    </label>
-                    <label class="list-group-item">
-                        <input type="checkbox" id="ice" value="Отрицательная температура" onchange="filterGhosts()"> Отрицательная температура
-                    </label>
-                    <label class="list-group-item">
-                        <input type="checkbox" id="pek3" value="РЕК 3" onchange="filterGhosts()"> РЕК 3
-                    </label>
-                </div>
-                <div class="col-md-6">
-                    <label class="list-group-item">
-                        <input type="checkbox" id="smoke" value="Дымка" onchange="filterGhosts()"> Дымка
-                    </label>
-					<label class="list-group-item">
-                        <input type="checkbox" id="note" value="Записи в блокноте" onchange="filterGhosts()"> Записи в блокноте
-                    </label>
-					<label class="list-group-item">
-                        <input type="checkbox" id="emp5" value="Уровень ЭМП 5" onchange="filterGhosts()"> Уровень ЭМП 5
-                    </label>
-					<label class="list-group-item">
-                        <input type="checkbox" id="dots" value="Лазерная Проекция" onchange="filterGhosts()"> Лазерная Проекция
-                    </label>
-					<label class="list-group-item">
-                        <input type="checkbox" id="sensor" value="Инфракрасный Датчик Движения" onchange="filterGhosts()"> Инфракрасный Датчик Движения
-                    </label>
-					
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <h2>Описание призраков:</h2>
-            <div id="ghost-list" class="row mt-3">
-                <div class="ghost card p-3 mb-2 col-md-3" id="ghost-Онрё" onmouseover="showTooltip(event, 'Онрё - это сильный и опасный дух, который оставляет заморозки.')" onmouseout="hideTooltip()">
-                    <h3>Онрё</h3>
-                    <p>Онрё - это сильный и опасный дух.</p>
-                </div>
-                <div class="ghost card p-3 mb-2 col-md-3" id="ghost-Мононоке" onmouseover="showTooltip(event, 'Демоны известны своей агрессивностью и атакуют чаще, чем другие призраки.')" onmouseout="hideTooltip()">
-                    <h3>Мононоке</h3>
-                    <p>Мононоке атакуют чаще.</p>
-                </div>
-                <div class="ghost card p-3 mb-2 col-md-3" id="ghost-Кинег" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Кинег</h3>
-                    <p>Кинег быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Джинн" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Джинн</h3>
-                    <p>Джинн быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Допплер" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Допплер</h3>
-                    <p>Допплер быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Мюлинг" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Мюлинг</h3>
-                    <p>Мюлинг быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Ревенант" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Ревенант</h3>
-                    <p>Ревенант быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Ширё" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Ширё</h3>
-                    <p>Ширё быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Шинигами" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Шинигами</h3>
-                    <p>Шинигами быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Полтергейст" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Полтергейст</h3>
-                    <p>Полтергейст быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Диббук" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Диббук</h3>
-                    <p>Диббук быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Обакэ" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Обакэ</h3>
-                    <p>Обакэ быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Пиру" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Пиру</h3>
-                    <p>Пиру быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Амонодзяку" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Амонодзяку</h3>
-                    <p>Амонодзяку быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Кидзё" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Кидзё</h3>
-                    <p>Кидзё быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Они" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Они</h3>
-                    <p>Они быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Могвай" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Могвай</h3>
-                    <p>Могвай быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Мара" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Мара</h3>
-                    <p>Мара быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Пишачи" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Пишачи</h3>
-                    <p>Пишачи быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Рэйки" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Рэйки</h3>
-                    <p>Рэйки быстрее движется.</p>
-                </div>
-				<div class="ghost card p-3 mb-2 col-md-3" id="ghost-Ронове" onmouseover="showTooltip(event, 'Джинн движется быстрее, если жертва далеко от него.')" onmouseout="hideTooltip()">
-                    <h3>Ронове</h3>
-                    <p>Ронове быстрее движется.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="tooltip" class="tooltip-description"></div>
-    <script>
-        const ghosts = {
-            "Онрё": ["Уровень ЭМП 5", "Записи в блокноте", "Лазерная Проекция"],
-            "Мононоке": ["Голос в диктофоне", "Уровень ЭМП 5", "Радиоприемник"],
-            "Кинег": ["Радиоприемник", "Огонек на камере", "Дымка"],
-            "Джинн": ["Записи в блокноте", "Уровень ЭМП 5", "Отрицательная температура"],
-            "Допплер": ["Дымка", "Инфракрасный Датчик Движения", "РЕК 3"],
-            "Мюлинг": ["Голос в диктофоне", "Уровень ЭМП 5", "Отрицательная температура"],
-            "Ревенант": ["Голос в диктофоне", "Следы эктоплазмы", "Огонек на камере"],
-            "Ширё": ["Лазерная Проекция", "Голос в диктофоне", "Следы эктоплазмы"],
-            "Шинигами": ["РЕК 3", "Радиоприемник", "Огонек на камере"],
-            "Полтергейст": ["Записи в блокноте", "Отрицательная температура", "Дымка"],
-            "Диббук": ["Голос в диктофоне", "Инфракрасный Датчик Движения", "Дымка"],
-            "Обакэ": ["Записи в блокноте", "Инфракрасный Датчик Движения", "Следы эктоплазмы"],
-            "Пиру": ["Отрицательная температура", "Следы эктоплазмы", "Огонек на камере"],
-            "Амонодзяку": ["Лазерная Проекция", "Отрицательная температура", "Дымка"],
-            "Кидзё": ["Радиоприемник", "Уровень ЭМП 5", "Дымка"],
-            "Они": ["Радиоприемник", "Инфракрасный Датчик Движения", "РЕК 3"],
-            "Могвай": ["Голос в диктофоне", "Лазерная Проекция", "Отрицательная температура"],
-            "Мара": ["Голос в диктофоне", "Инфракрасный Датчик Движения", "Следы эктоплазмы"],
-            "Пишачи": ["РЕК 3", "Отрицательная температура", "Огонек на камере"],
-            "Рэйки": ["Записи в блокноте", "Лазерная Проекция", "Следы эктоплазмы"],
-            "Ронове": ["Радиоприемник", "Голос в диктофоне", "Следы эктоплазмы"]
-        };
-
-function filterGhosts() {
-    const evidenceCheckboxes = document.querySelectorAll('input[type="checkbox"]');
-    const selectedEvidence = Array.from(evidenceCheckboxes)
-        .filter(cb => cb.checked)
-        .map(cb => cb.value);
-
-    const ghostElements = document.querySelectorAll('.ghost');
-
-    for (const ghostEl of ghostElements) {
-        const ghostName = ghostEl.id.replace('ghost-', '');
-        const requiredEvidence = ghosts[ghostName];
-
-        if (!requiredEvidence) continue;
-
-        const matches = selectedEvidence.every(ev => requiredEvidence.includes(ev));
-
-        if (matches) {
-            // Показать
-            ghostEl.classList.remove('hidden');
-            requestAnimationFrame(() => {
-                ghostEl.classList.remove('hiding');
-                ghostEl.classList.remove('strikethrough');
-            });
-        } else {
-            // Сначала анимация исчезновения
-            ghostEl.classList.add('hiding');
-            ghostEl.classList.add('strikethrough');
-
-            // После завершения анимации скрываем
-            setTimeout(() => {
-                ghostEl.classList.add('hidden');
-            }, 400); // Время = transition в CSS
-        }
+  <meta charset="UTF-8">
+  <title>Книга с вкладками</title>
+  
+  
+  <style>
+    body {
+      margin: 0;
+      background: url('background.webp') no-repeat center center fixed;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
-}
 
-        function showTooltip(event, text) {
-            const tooltip = document.getElementById("tooltip");
-            tooltip.innerText = text;
-            tooltip.style.display = "block";
-            tooltip.style.left = event.pageX + 10 + "px";
-            tooltip.style.top = event.pageY + 10 + "px";
-        }
+    .book-container {
+      position: relative;
+      width: 90vw;
+      max-width: 1920px;
+      aspect-ratio: 2 / 1; /* Примерное соотношение сторон книги */
+      background: url('book.webp') no-repeat center center;
+      background-size: contain;
+    }
 
-        function hideTooltip() {
-            document.getElementById("tooltip").style.display = "none";
+    .tab {
+      position: absolute;
+      width: 4%;
+      aspect-ratio: 1;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+    }
+
+    /* Вкладки слева */
+    .tab-left:nth-child(1) { top: 2.6%; left: 21.8%; background-image: url('icon-search.webp');}
+    .tab-left:nth-child(2) { top: 2%; left: 27.7%; background-image: url('icon-brain.webp');width: 5%; }
+    .tab-left:nth-child(3) { top: 2%; left: 34.5%; background-image: url('icon-light.webp'); width: 5%;}
+
+    /* Вкладки справа */
+    .tab-right:nth-child(4) { top: 2.6%; left: 54.8%; background-image: url('icon-ghost.webp'); width: 4.6%;}
+    .tab-right:nth-child(5) { top: 2.6%; left: 61.5%; background-image: url('icon-cam.webp'); width: 4.9%;}
+    .tab-right:nth-child(6) { top: 1.4%; left: 67.7%; background-image: url('icon-pentagram.webp'); width: 5.4%;}
+
+    .book-content {
+      position: absolute;
+      top: 20%;
+      left: 5%;
+      width: 90%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.5vw;
+    }
+
+    .left-page {
+	  top: 1.4%; 
+	  left: 18%;
+	  height: 60%;
+      position: absolute;
+      width: 32%;
+      aspect-ratio: 1;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+    }
+	
+	.right-page {
+	  top: 1.4%; 
+	  left: 51%;
+	  height: 60%;
+      position: absolute;
+      width: 32%;
+      aspect-ratio: 1;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+    }
+	
+	.text-checkbox {
+		position: relative;
+		display: block;
+		font-family: 'ofont.ru_Azov.ttf', sans-serif;
+		font-size: 75%;
+		margin: 10px 0;
+		cursor: pointer;
+	}
+	
+	.text-ghost {
+		position: relative;
+		display: block;
+		font-family: 'ofont.ru_Azov.ttf', sans-serif;
+		font-size: 75%;
+		margin: 10px 0;
+		padding:19px;
+	}
+	.text-ghost .overlay-ghost {
+		position: absolute;
+		top: 0%; /* можно подстроить */
+		left: 0%; /* подкорректируй позицию, чтобы не перекрывало текст */
+		width: 45%;
+		height: 150%;
+		display: none;
+		pointer-events: none;
+	}
+	
+	.text-checkbox input[type="checkbox"] {
+		display: none;
+	}
+
+	.text-checkbox .overlay {
+		position: absolute;
+		top: -25%; /* можно подстроить */
+		left: -5%; /* подкорректируй позицию, чтобы не перекрывало текст */
+		width: 45%;
+		height: 150%;
+		display: none;
+		pointer-events: none;
+	}
+
+	.text-checkbox input[type="checkbox"]:checked ~ .overlay {
+		display: block;
+	}
+
+	.text-ghost input[type="checkbox"]:checked ~ .overlay-ghost {
+		display: block;
+	}
+
+
+	.ghost.strikethrough {
+        text-decoration: line-through;
+        opacity: 1.0;
         }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		
+    .tooltip-description {
+        position: relative;
+		display: block;
+		font-family: 'ofont.ru_Azov.ttf', sans-serif;
+		font-size: 75%;
+		margin: 10px 0;
+		cursor: pointer;
+        }
+ 
+ 
+	
+  </style>
+</head>
+<body>
+
+  <div class="book-container">
+    <!-- Вкладки слева -->
+    <div class="tab tab-left"></div>
+    <div class="tab tab-left"></div>
+    <div class="tab tab-left"></div>
+
+    <!-- Вкладки справа -->
+    <div class="tab tab-right"></div>
+    <div class="tab tab-right"></div>
+    <div class="tab tab-right"></div>
+
+    <!-- Контент книги -->
+    <div class="book-content">
+      <div class="left-page">
+	  
+			<div class="checkbox-columns">
+				<div class="column">
+					<label class="text-checkbox">
+					<input type="checkbox" id="fingerprints" value="Следы эктоплазмы" onchange="filterGhosts()">
+					<span>Следы эктоплазмы</span>
+					<img class="overlay" src="+.png" alt="Выбрано">
+				</label>
+
+				<label class="text-checkbox">
+					<input type="checkbox" id="spiritbox" value="Радиоприемник" onchange="filterGhosts()">
+					<span>Радиоприемник</span>
+					<img class="overlay" src="+.png" alt="Выбрано">
+				</label>
+				<label class="text-checkbox">
+					<input type="checkbox" id="record" value="Голос в диктофоне" onchange="filterGhosts()">
+					<span>Голос в диктофоне</span>
+					<img class="overlay" src="+.png" alt="Выбрано">
+				</label>
+				
+				<label class="text-checkbox">
+					<input type="checkbox" id="orbs" value="Огонек на камере" onchange="filterGhosts()">
+					<span>Огонек на камере</span>
+					<img class="overlay" src="+.png" alt="Выбрано">
+				</label>
+				
+				<label class="text-checkbox">
+					<input type="checkbox" id="ice" value="Отрицательная температура" onchange="filterGhosts()">
+					<span>Отрицательная температура</span>
+					<img class="overlay" src="+.png" alt="Выбрано">
+				</label>
+				
+				<label class="text-checkbox">
+					<input type="checkbox" id="pek3" value="РЕК 3" onchange="filterGhosts()">
+					<span>РЕК 3</span>
+					<img class="overlay" src="+.png" alt="Выбрано">
+				</label>
+						
+				</div>
+				
+				<div class="column">
+					<label class="text-checkbox">
+					<input type="checkbox" id="smoke" value="Дымка" onchange="filterGhosts()">
+					<span>Дымка</span>
+					<img class="overlay" src="+.png" alt="Выбрано">
+				</label>
+
+				<label class="text-checkbox">
+					<input type="checkbox" id="note" value="Записи в блокноте" onchange="filterGhosts()">
+					<span>Записи в блокноте</span>
+					<img class="overlay" src="+.png" alt="Выбрано">
+				</label>
+				<label class="text-checkbox">
+					<input type="checkbox" id="emp5" value="Уровень ЭМП 5" onchange="filterGhosts()">
+					<span>Уровень ЭМП 5</span>
+					<img class="overlay" src="+.png" alt="Выбрано">
+				</label>
+				
+				<label class="text-checkbox">
+					<input type="checkbox" id="dots" value="Лазерная Проекция" onchange="filterGhosts()">
+					<span>Лазерная Проекция</span>
+					<img class="overlay" src="+.png" alt="Выбрано">
+				</label>
+				
+				<label class="text-checkbox">
+					<input type="checkbox" id="sensor" value="Инфракрасный Датчик Движения" onchange="filterGhosts()">
+					<span>Инфракрасный Датчик Движения</span>
+					<img class="overlay" src="+.png" alt="Выбрано">
+				</label>
+						
+				</div>
+		
+			</div>
+			
+		</div>
+      <div class="right-page">
+            <div id="ghost-list" style="display: flex; flex-wrap: wrap;">
+			
+				<div class="ghost column" id="ghost-Онрё">
+					<label class="text-ghost">
+					<span>Онрё</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				
+                <div class="ghost column" id="ghost-Мононоке">
+					<label class="text-ghost">
+					<span>Мононоке</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Кинег">
+					<label class="text-ghost">
+					<span>Кинег</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Джинн">
+					<label class="text-ghost">
+					<span>Джинн</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Допплер">
+					<label class="text-ghost">
+					<span>Допплер</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Мюлинг">
+					<label class="text-ghost">
+					<span>Мюлинг</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Ревенант">
+					<label class="text-ghost">
+					<span>Ревенант</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Ширё">
+					<label class="text-ghost">
+					<span>Ширё</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Шинигами">
+					<label class="text-ghost">
+					<span>Шинигами</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Полтергейст">
+					<label class="text-ghost">
+					<span>Полтергейст</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Диббук">
+					<label class="text-ghost">
+					<span>Диббук</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Обакэ">
+					<label class="text-ghost">
+					<span>Обакэ</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Пиру">
+					<label class="text-ghost">
+					<span>Пиру</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Амонодзяку">
+					<label class="text-ghost">
+					<span>Амонодзяку</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Кидзё">
+					<label class="text-ghost">
+					<span>Кидзё</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Они">
+					<label class="text-ghost">
+					<span>Они</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Могвай">
+					<label class="text-ghost">
+					<span>Могвай</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Мара">
+					<label class="text-ghost">
+					<span>Мара</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Пишачи">
+					<label class="text-ghost">
+					<span>Пишачи</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Рэйки">
+					<label class="text-ghost">
+					<span>Рэйки</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Ронове">
+					<label class="text-ghost">
+					<span>Ронове</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+				<div class="ghost column" id="ghost-Пейлвойс">
+					<label class="text-ghost">
+					<span>Пейлвойс</span>
+					<img class="overlay-ghost" src="-.png">
+				</label>
+				</div>
+             </div>
+			
+			
+			
+			
+      </div>
+    </div>
+  </div>
+
+
+<div id="tooltip" class="tooltip-description"></div>
+     <script>
+         const ghosts = {
+             "Онрё": ["Уровень ЭМП 5", "Записи в блокноте", "Лазерная Проекция"],
+             "Мононоке": ["Голос в диктофоне", "Уровень ЭМП 5", "Радиоприемник"],
+             "Кинег": ["Радиоприемник", "Огонек на камере", "Дымка"],
+             "Джинн": ["Записи в блокноте", "Уровень ЭМП 5", "Отрицательная температура"],
+             "Допплер": ["Дымка", "Инфракрасный Датчик Движения", "РЕК 3"],
+             "Мюлинг": ["Голос в диктофоне", "Уровень ЭМП 5", "Отрицательная температура"],
+             "Ревенант": ["Голос в диктофоне", "Следы эктоплазмы", "Огонек на камере"],
+             "Ширё": ["Лазерная Проекция", "Голос в диктофоне", "Следы эктоплазмы"],
+             "Шинигами": ["РЕК 3", "Радиоприемник", "Огонек на камере"],
+             "Полтергейст": ["Записи в блокноте", "Отрицательная температура", "Дымка"],
+             "Диббук": ["Голос в диктофоне", "Инфракрасный Датчик Движения", "Дымка"],
+             "Обакэ": ["Записи в блокноте", "Инфракрасный Датчик Движения", "Следы эктоплазмы"],
+             "Пиру": ["Отрицательная температура", "Следы эктоплазмы", "Огонек на камере"],
+             "Амонодзяку": ["Лазерная Проекция", "Отрицательная температура", "Дымка"],
+             "Кидзё": ["Радиоприемник", "Уровень ЭМП 5", "Дымка"],
+             "Они": ["Радиоприемник", "Инфракрасный Датчик Движения", "РЕК 3"],
+             "Могвай": ["Голос в диктофоне", "Лазерная Проекция", "Отрицательная температура"],
+             "Мара": ["Голос в диктофоне", "Инфракрасный Датчик Движения", "Следы эктоплазмы"],
+             "Пишачи": ["РЕК 3", "Отрицательная температура", "Огонек на камере"],
+             "Рэйки": ["Записи в блокноте", "Лазерная Проекция", "Следы эктоплазмы"],
+             "Ронове": ["Радиоприемник", "Голос в диктофоне", "Следы эктоплазмы"],
+             "Пейлвойс": ["Голос в диктофоне", "Отрицательная температура", "РЕК 3"]
+         };
+ 
+         function filterGhosts() {
+             const selectedEvidence = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+ 
+             for (let ghost in ghosts) {
+                 const ghostElement = document.getElementById(`ghost-${ghost}`);
+                 const matchingEvidences = ghosts[ghost].filter(evidence => selectedEvidence.includes(evidence)).length;
+ 
+                 if (matchingEvidences === selectedEvidence.length) {
+                     ghostElement.classList.remove("strikethrough");
+                     ghostElement.classList.remove("overlay-ghost");
+                 } else {
+                     ghostElement.classList.add("strikethrough");
+                     ghostElement.classList.add("overlay-ghost");
+                 }
+             }
+         }
+ 
+         function showTooltip(event, text) {
+             const tooltip = document.getElementById("tooltip");
+             tooltip.innerText = text;
+             tooltip.style.display = "block";
+             tooltip.style.left = event.pageX + 10 + "px";
+             tooltip.style.top = event.pageY + 10 + "px";
+         }
+ 
+         function hideTooltip() {
+             document.getElementById("tooltip").style.display = "none";
+         }
+     </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
