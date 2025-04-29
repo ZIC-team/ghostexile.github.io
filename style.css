@@ -12,13 +12,22 @@
       align-items: center;
       min-height: 100vh;
     }
-
-    .book-container {
+	
+	.book-container {
       position: relative;
       width: 90vw;
       max-width: 1920px;
       aspect-ratio: 2 / 1; /* Примерное соотношение сторон книги */
       background: url('icon/book.webp') no-repeat center center;
+      background-size: contain;
+    }
+	
+	.book-container2 {
+      position: relative;
+      width: 90vw;
+      max-width: 1920px;
+      aspect-ratio: 2 / 1; /* Примерное соотношение сторон книги */
+      background: url('icon/book2.webp') no-repeat center center;
       background-size: contain;
     }
 
