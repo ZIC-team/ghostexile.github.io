@@ -273,14 +273,16 @@
  
              for (let ghost in ghosts) {
                  const ghostElement = document.getElementById(`ghost-${ghost}`);
+				 const overlayImg = ghostElement.querySelector(".overlay-ghost");
                  const matchingEvidences = ghosts[ghost].filter(evidence => selectedEvidence.includes(evidence)).length;
+				 
  
                  if (matchingEvidences === selectedEvidence.length) {
                      ghostElement.classList.remove("strikethrough");
-                     ghostElement.classList.remove("overlay-ghost");
+                      overlayImg.style.display = "none";
                  } else {
                      ghostElement.classList.add("strikethrough");
-                     ghostElement.classList.add("overlay-ghost");
+                     overlayImg.style.display = "block";
                  }
              }
          }
