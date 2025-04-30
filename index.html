@@ -21,222 +21,235 @@
     <div class="book-content">
       <div class="left-page">
 	  
-			<div class="checkbox-columns">
-				<div class="column">
-					<label class="text-checkbox">
+	  <table class="iksweb">
+			<tr>
+				<td><label class="text-checkbox">
 					<input type="checkbox" id="fingerprints" value="Следы эктоплазмы" onchange="filterGhosts()">
 					<span>Следы эктоплазмы</span>
 					<img class="overlay" src="icon/+.png" alt="Выбрано">
-				</label>
-
-				<label class="text-checkbox">
-					<input type="checkbox" id="spiritbox" value="Радиоприемник" onchange="filterGhosts()">
-					<span>Радиоприемник</span>
-					<img class="overlay" src="icon/+.png" alt="Выбрано">
-				</label>
-				<label class="text-checkbox">
-					<input type="checkbox" id="record" value="Голос в диктофоне" onchange="filterGhosts()">
-					<span>Голос в диктофоне</span>
-					<img class="overlay" src="icon/+.png" alt="Выбрано">
-				</label>
-				
-				<label class="text-checkbox">
-					<input type="checkbox" id="orbs" value="Огонек на камере" onchange="filterGhosts()">
-					<span>Огонек на камере</span>
-					<img class="overlay" src="icon/+.png" alt="Выбрано">
-				</label>
-				
-				<label class="text-checkbox">
-					<input type="checkbox" id="ice" value="Отрицательная температура" onchange="filterGhosts()">
-					<span>Отрицательная температура</span>
-					<img class="overlay" src="icon/+.png" alt="Выбрано">
-				</label>
-				
-				<label class="text-checkbox">
-					<input type="checkbox" id="pek3" value="РЕК 3" onchange="filterGhosts()">
-					<span>РЕК 3</span>
-					<img class="overlay" src="icon/+.png" alt="Выбрано">
-				</label>
-						
-				</div>
-				
-				<div class="column">
-					<label class="text-checkbox">
+				</label></td>
+				<td><label class="text-checkbox">
 					<input type="checkbox" id="smoke" value="Дымка" onchange="filterGhosts()">
 					<span>Дымка</span>
 					<img class="overlay" src="icon/+.png" alt="Выбрано">
-				</label>
-
-				<label class="text-checkbox">
+				</label></td>
+			</tr>
+			<tr>
+				<td><label class="text-checkbox">
+					<input type="checkbox" id="spiritbox" value="Радиоприемник" onchange="filterGhosts()">
+					<span>Радиоприемник</span>
+					<img class="overlay" src="icon/+.png" alt="Выбрано">
+				</label></td>
+				<td><label class="text-checkbox">
 					<input type="checkbox" id="note" value="Записи в блокноте" onchange="filterGhosts()">
 					<span>Записи в блокноте</span>
 					<img class="overlay" src="icon/+.png" alt="Выбрано">
-				</label>
-				<label class="text-checkbox">
+				</label></td>
+			</tr>
+			<tr>
+				<td><label class="text-checkbox">
+					<input type="checkbox" id="record" value="Голос в диктофоне" onchange="filterGhosts()">
+					<span>Голос в диктофоне</span>
+					<img class="overlay" src="icon/+.png" alt="Выбрано">
+				</label></td>
+				<td><label class="text-checkbox">
 					<input type="checkbox" id="emp5" value="Уровень ЭМП 5" onchange="filterGhosts()">
 					<span>Уровень ЭМП 5</span>
 					<img class="overlay" src="icon/+.png" alt="Выбрано">
-				</label>
-				
-				<label class="text-checkbox">
+				</label></td>
+			</tr>
+			<tr>
+				<td><label class="text-checkbox">
+					<input type="checkbox" id="orbs" value="Огонек на камере" onchange="filterGhosts()">
+					<span>Огонек на камере</span>
+					<img class="overlay" src="icon/+.png" alt="Выбрано">
+				</label></td>
+				<td><label class="text-checkbox">
 					<input type="checkbox" id="dots" value="Лазерная Проекция" onchange="filterGhosts()">
 					<span>Лазерная Проекция</span>
 					<img class="overlay" src="icon/+.png" alt="Выбрано">
-				</label>
-				
-				<label class="text-checkbox">
-					<input type="checkbox" id="sensor" value="Инфракрасный Датчик Движения" onchange="filterGhosts()">
-					<span>Инфракрасный Датчик Движения</span>
+				</label></td>
+			</tr>
+			<tr>
+				<td><label class="text-checkbox">
+					<input type="checkbox" id="ice" value="Отрицательная температура" onchange="filterGhosts()">
+					<span>Отрицательная температура</span>
 					<img class="overlay" src="icon/+.png" alt="Выбрано">
-				</label>
-						
-				</div>
-		
-			</div>
-			
+				</label></td>
+				<td><label class="text-checkbox">
+					<input type="checkbox" id="sensor" value="Инфракрасный Датчик Движения" onchange="filterGhosts()">
+					<span>Инфракрасный <br>Датчик Движения</span>
+					<img class="overlay" src="icon/+.png" alt="Выбрано">
+				</label></td>
+			</tr>
+			<tr>
+				<td><label class="text-checkbox">
+					<input type="checkbox" id="pek3" value="РЕК 3" onchange="filterGhosts()">
+					<span>РЕК 3</span>
+					<img class="overlay" src="icon/+.png" alt="Выбрано">
+				</label></td>
+				<td></td>
+			</tr>
+		</table>
+
 		</div>
-      <div class="right-page">
-		<div class="checkbox-columns">
+		<div class="right-page">
             <div id="ghost-list" style="display: flex; flex-wrap: wrap;">
-			
-				<div class="ghost column" id="ghost-Онрё">
-					<label class="text-ghost">
-					<span>Онрё</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				
-                <div class="ghost column" id="ghost-Мононоке">
-					<label class="text-ghost">
-					<span>Мононоке</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Кинег">
-					<label class="text-ghost">
-					<span>Кинег</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Джинн">
-					<label class="text-ghost">
-					<span>Джинн</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Допплер">
-					<label class="text-ghost">
-					<span>Допплер</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Мюлинг">
-					<label class="text-ghost">
-					<span>Мюлинг</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Ревенант">
-					<label class="text-ghost">
-					<span>Ревенант</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Ширё">
-					<label class="text-ghost">
-					<span>Ширё</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Шинигами">
-					<label class="text-ghost">
-					<span>Шинигами</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Полтергейст">
-					<label class="text-ghost">
-					<span>Полтергейст</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Диббук">
-					<label class="text-ghost">
-					<span>Диббук</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Обакэ">
-					<label class="text-ghost">
-					<span>Обакэ</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Пиру">
-					<label class="text-ghost">
-					<span>Пиру</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Амонодзяку">
-					<label class="text-ghost">
-					<span>Амонодзяку</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Кидзё">
-					<label class="text-ghost">
-					<span>Кидзё</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Они">
-					<label class="text-ghost">
-					<span>Они</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Могвай">
-					<label class="text-ghost">
-					<span>Могвай</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Мара">
-					<label class="text-ghost">
-					<span>Мара</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Пишачи">
-					<label class="text-ghost">
-					<span>Пишачи</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Рэйки">
-					<label class="text-ghost">
-					<span>Рэйки</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Ронове">
-					<label class="text-ghost">
-					<span>Ронове</span>
-					<img class="overlay-ghost" src="icon/cross.png">
-				</label>
-				</div>
-				<div class="ghost column" id="ghost-Пейлвойс">
-					<label class="text-ghost">
-					<span>Пейлвойс</span>
-					<img class="overlay-ghost" src="icon/cross.png" alt="Выбрано">
-				</label>
-				</div>
+				<table>
+					<tbody>
+						<tr>
+							<td><div class="ghost column" id="ghost-Онрё">
+									<label class="text-ghost">
+									<span>Онрё</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Мононоке">
+									<label class="text-ghost">
+									<span>Мононоке</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Кинег">
+									<label class="text-ghost">
+									<span>Кинег</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Джинн">
+									<label class="text-ghost">
+									<span>Джинн</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+						</tr>
+						<tr>
+							<td><div class="ghost column" id="ghost-Допплер">
+									<label class="text-ghost">
+									<span>Допплер</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Мюлинг">
+									<label class="text-ghost">
+									<span>Мюлинг</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Ревенант">
+									<label class="text-ghost">
+									<span>Ревенант</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Ширё">
+									<label class="text-ghost">
+									<span>Ширё</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+						</tr>
+						<tr>
+							<td><div class="ghost column" id="ghost-Шинигами">
+									<label class="text-ghost">
+									<span>Шинигами</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Полтергейст">
+									<label class="text-ghost">
+									<span>Полтергейст</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Диббук">
+									<label class="text-ghost">
+									<span>Диббук</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Обакэ">
+									<label class="text-ghost">
+									<span>Обакэ</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+						</tr>
+						<tr>
+							<td><div class="ghost column" id="ghost-Пиру">
+									<label class="text-ghost">
+									<span>Пиру</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Амонодзяку">
+									<label class="text-ghost">
+									<span>Амонодзяку</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Кидзё">
+									<label class="text-ghost">
+									<span>Кидзё</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Они">
+									<label class="text-ghost">
+									<span>Они</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+						</tr>
+						<tr>
+							<td><div class="ghost column" id="ghost-Могвай">
+									<label class="text-ghost">
+									<span>Могвай</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Мара">
+									<label class="text-ghost">
+									<span>Мара</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Пишачи">
+									<label class="text-ghost">
+									<span>Пишачи</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Рэйки">
+									<label class="text-ghost">
+									<span>Рэйки</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+						</tr>
+						<tr>
+							<td><div class="ghost column" id="ghost-Ронове">
+									<label class="text-ghost">
+									<span>Ронове</span>
+									<img class="overlay-ghost" src="icon/cross.png">
+								</label>
+								</div></td>
+							<td><div class="ghost column" id="ghost-Пейлвойс">
+									<label class="text-ghost">
+									<span>Пейлвойс</span>
+									<img class="overlay-ghost" src="icon/cross.png" alt="Выбрано">
+								</label>
+								</div></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>	
              </div>
 			
 			
 			
-		</div>	
+		
       </div>
     </div>
   </div>
