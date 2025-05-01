@@ -19,9 +19,9 @@
     <a href="pentagram.html" class="tab tab-right"></a>
 
     <!-- Контент книги -->
-    <div class="book-content">
-		<div class="left-page" id="list">
-		
+	<table class="book-content">
+	<tr>
+	<td class="column-1" id="list">
 		<table>
 		<tr>
 			<td><div class="text-checkbox" data-html="hunt/hunt_default.html">Обычная охота</div></td>
@@ -30,27 +30,27 @@
 			<td><div class="text-checkbox" data-html="hunt/hunt_ronove.html">Охота Ронове</div></td>
 		</tr>
 		<tr>
-			<td><div class="text-checkbox" data-html="hunt/hunt_belphegor.html" data-img="https://via.placeholder.com/300x150.png?text=Картинка+3">Метка Бельфегора</div></td>
+			<td><div class="text-checkbox" data-html="hunt/hunt_belphegor.html">Метка Бельфегора (Деоген)</div></td>
 		</tr>
 		<tr>
-			<td><div class="text-checkbox" data-html="hunt/hunt_sanpaku.html" data-img="https://via.placeholder.com/300x150.png?text=Картинка+3">Проклятье Санпаку</div></td>
+			<td><div class="text-checkbox" data-html="hunt/hunt_sanpaku.html">Проклятье Санпаку (Гляделки)</div></td>
 		</tr>
 		<tr>
-			<td><div class="text-checkbox" data-html="hunt/hunt_box_devil.html" data-img="https://via.placeholder.com/300x150.png?text=Картинка+3">Шкатулка Дьявола</div></td>
+			<td><div class="text-checkbox" data-html="hunt/hunt_box_devil.html">Шкатулка Дьявола</div></td>
 		</tr>
 		<tr>
-			<td><div class="text-checkbox" data-html="hunt/hunt_goap.html" data-img="https://via.placeholder.com/300x150.png?text=Картинка+3">Плач Гоапа</div></td>
+			<td><div class="text-checkbox" data-html="hunt/hunt_goap.html">Плач Гоапа</div></td>
 		</tr>
 		<tr>
-			<td><div class="text-checkbox" data-html="hunt/hunt_demon_shadow.html" data-img="https://via.placeholder.com/300x150.png?text=Картинка+3">Демон тьмы</div></td>
+			<td><div class="text-checkbox" data-html="hunt/hunt_demon_shadow.html">Демон тьмы (Огонек)</div></td>
 		</tr>
 		</table>
-		</div>
-		<div class="right-page" id="info">
-		<p>Выберите пункт слева, чтобы увидеть информацию.</p>
-		</div>
-	</div>
-
+	</td>
+	<td class="column-2" id="info">
+	</td>
+	</tr>
+	</table>
+	
 <script>
   const items = document.querySelectorAll('#list .text-checkbox');
   const infoBox = document.getElementById('info');
