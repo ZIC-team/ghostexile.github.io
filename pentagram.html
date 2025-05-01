@@ -19,9 +19,8 @@
     <a href="pentagram.html" class="tab tab-right"></a>
 
     <!-- Контент книги -->
-	<table class="book-content">
-	<tr>
-	<td class="column-1" id="list">
+	<div class="book-content">
+	<div class="left-page" id="list">
 		<table>
 		<tr>
 			<td><div class="text-checkbox" data-html="hunt/hunt_default.html">Обычная охота</div></td>
@@ -45,12 +44,11 @@
 			<td><div class="text-checkbox" data-html="hunt/hunt_demon_shadow.html">Демон тьмы (Огонек)</div></td>
 		</tr>
 		</table>
-	</td>
-	<td class="column-2" id="info">
-	</td>
-	</tr>
-	</table>
-	
+	</div>
+	<div class="right-page-2" id="info"  style="display: flex; flex-wrap: wrap;">
+	</div>
+	</div>
+	</div>
 <script>
   const items = document.querySelectorAll('#list .text-checkbox');
   const infoBox = document.getElementById('info');

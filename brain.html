@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>GHOST EXILE | Book</title>
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
@@ -18,11 +19,71 @@
     <a href="pentagram.html" class="tab tab-right"></a>
 
     <!-- Контент книги -->
-    <div class="book-content">
-		<div class="left-page">
-		</div>
-		<div class="right-page">
-		</div>
+	<div class="book-content">
+	<div class="left-page" id="list">
+	<table>
+		<tr>
+			<td><div class="text-checkbox" data-html="brain/rassudok.html">Рассудок</div></td>
+			<td><div class="text-checkbox" data-html="brain/hunt_demon_shadow.html">Печать Астарота (Зщита)</div></td>
+		</tr>
+		<tr>
+			<td><div class="text-checkbox" data-html="brain/search.html">Исследование призраков</div></td>
+			<td><div class="text-checkbox" data-html="brain/hunt_demon_shadow.html">Печать Бафолмета (Активность)</div></td>
+		</tr>
+		<tr>
+			<td><div class="text-checkbox" data-html="brain/activ.html">Призрачная активность</div></td>
+		</tr>
+		<tr>
+			<td><div class="text-checkbox" data-html="brain/hunt_sanpaku.html">Ритуал изгнания призрака</div></td>
+		</tr>
+		<tr>
+			<td><div class="text-checkbox" data-html="brain/hunt_box_devil.html">Порталы</div></td>
+			
+			<td><div class="text-checkbox" data-html="brain/hunt_demon_shadow.html">Печать Джар'уерак</div></td>
+		</tr>
+		<tr>
+			<td><div class="text-checkbox" data-html="brain/hunt_goap.html">Мир теней</div></td>
+		</tr>
+		<tr>
+			<td><div class="text-checkbox" data-html="brain/hunt_demon_shadow.html">Ритуал почитания доброй части души</div></td>
+			<td><div class="text-checkbox" data-html="brain/hunt_demon_shadow.html">Печать Ашукут</div></td>
+		</tr>
+	</table>
 	</div>
+	
+	<div class="right-page" id="info">
+	<div style="display: flex; flex-wrap: wrap;">
+	<table>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+<script>
+  const items = document.querySelectorAll('#list .text-checkbox');
+  const infoBox = document.getElementById('info');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      const htmlPath = item.dataset.html;
+
+      if (htmlPath) {
+        fetch(htmlPath)
+          .then(response => {
+            if (!response.ok) throw new Error('Ошибка загрузки');
+            return response.text();
+          })
+          .then(html => {
+            infoBox.innerHTML = html;
+          })
+          .catch(error => {
+            infoBox.innerHTML = `<p style="color:red;">Не удалось загрузить: ${htmlPath}</p>`;
+            console.error(error);
+          });
+      }
+    });
+  });
+</script>
 </body>
 </html>

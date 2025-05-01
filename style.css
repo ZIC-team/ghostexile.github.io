@@ -11,6 +11,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+	  user-select: none
     }
 	
 	.book-container {
@@ -111,19 +112,22 @@
 	  justify-content: center;
 	  align-items: center;
 	  position: absolute;
-	  top: 1.4%; 
-	  left: 51%;
+	  top: 5%; 
+	  left: 50%;
 	  height: 100%;
 	  width: 50%;
+	  aspect-ratio: 1;
+	  background-size: contain;
+	  background-repeat: no-repeat;
+	  background-position: center;
 	  overflow: hidden;
 	  font-size: min(1vw, 1vh); /* или 2.2dvw / dvh если поддерживается */
     }
 	.hunt {
 		align-items: center;
-		position: absolute;
-		top: 5%; 
+		position: relative; 
 		height: 100%;
-		width: 100%;
+		width: 90%;
 		overflow: hidden;
 		font-family: 'font', sans-serif;
 		font-size: min(1vw, 1.6vh); /* или 2.2dvw / dvh если поддерживается */
@@ -137,7 +141,7 @@
 		font-family: 'font', sans-serif;
 		font-size: 1.1vw; /* или экспериментировать: 2vh, 1.8vw и т.п. */
 		margin: 0;
-	    padding: 0.4em;
+	    padding: 0.3em;
 	    text-align: center;
 	    max-height: 40%;
 	    overflow-y: auto;
@@ -237,40 +241,30 @@
 		cursor: pointer;
         }
 		
-
+	.brain-left {
+	  display: grid;
+	  ustify-content: center;
+	  align-items: center;
+	  top: 0%; 
+	  left: -5%;
+	  height: 75%;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+	}
     #container {
-		isplay: flex;
-		gap: 10px;
+		display: flex;
 		font-family: 'font', sans-serif;
     }
-    #list {
-		position: relative;
-		width: 25%;
-    }
-    #list div {
-		font-family: 'font', sans-serif;
-		padding: 10px;
-		cursor: pointer;
-    }
-    #list div:hover {
-		font-family: 'font', cursive;
-	}
-    #info {
-	  height: 100%;
-	  position: relative;
-	  z-index: 1;
-	}
+	
 
-	#info p,
-	#info div {
-	  height: 100%;
-	  box-sizing: border-box;
-	}
     #info img {
 		font-family: 'MyFont';
 		max-width: 25%;
 		margin-top: 10px;
-		
     }
 	
 	table {
@@ -284,18 +278,4 @@
 	  top: 0;
 	  left: 0;
 	  z-index: 0;
-	}
-	
-	.column-1
-	{
-	  width: 50%;
-	  height: 100%;
-	  vertical-align: top;
-	  padding: 0;
-	}
-	.column-2 {
-	  width: 24%;
-	  height: 100%;
-	  vertical-align: top;
-	  padding: 0;
 	}
